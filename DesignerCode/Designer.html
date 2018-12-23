@@ -51,19 +51,22 @@
 				  <div class="form-group">
 					<label for="image">Cover image</label>
 					<input type="file" accept=".gif,.jpg,.jpeg,.png" class="form-control-file" id="image">
+					<small class="form-text text-muted">Please copy the choosen file to images folder before selecting.</small>
 				  </div>
 				   <button type="button" id="generate" class="btn btn-primary">Generate</button>
 				</form>
 			</div>
 		</div>
 		<div class="col" style="border: 1px black solid;">
-			<div id="cover" style="margin: 50px 50px; background-color:aqua; height: 520px;">
-				<img id="photo" src="question.jpg" width="560" height="520" style="opacity:0.3; position:absolute z-index:1;">
-				 <p id="book" style="text-align:center; font-size:400%; position:relative; top:-430px; z-index:2;"><ins><strong>Book Title</strong></ins></p>
-				 <p id="sub" style="z-index:2; text-align:center; font-size:200%; position:relative; top:-460px;">Subtitle</p>
-				 <p id="owner" style="z-index:2; text-align:left; font-size:150%; position:relative; top:-300px; left:30px">Author</p>
-				 <p id="publish" style="z-index:2; text-align:right; font-size:150%; position:relative; top:-370px; right:30px">Publisher</p>
-				 <p id="time" style="z-index:2; text-align:right; font-size:100%; position:relative; top:-385px; right:30px">Publishing year</p>
+			<div id="cover" style="margin: 50px 50px; background-color:aqua; width: 580px; height: 520px;">
+				<img id="photo" src="images/question.jpg" width="580" height="520" style="opacity:0.5; position:absolute z-index:1;">
+				<div style="width: 560px; position:absolute; top:50px;">
+					<p id="book" style="margin-top: 70px; text-align:center; font-size:400%;"><ins><strong>Book Title</strong></ins></p>
+					<p id="sub" style="margin-top: -25px; text-align:center; font-size:200%;">Subtitle</p>
+					<p id="owner" style="font-size:150%; position:absolute; top:380px; left:30px;">Author</p>
+					<p id="publish" style="font-size:150%; position:absolute; top:370px; right:20px;">Publisher</p>
+					<p id="time" style="font-size:100%; position:absolute; top:400px; right:20px;">Publishing year</p>
+				</div>			
 			 </div>
 		</div>
 	</div>
@@ -75,7 +78,7 @@
 			document.getElementById("publish").innerHTML = document.getElementById("publisher").value;
 			document.getElementById("time").innerHTML = document.getElementById("year").value;
 			document.getElementById("cover").style.backgroundColor = document.getElementById("color").value;
-			//document.getElementById("photo").src=document.getElementById("image").value;
+			document.getElementById("photo").src= "images/"+document.getElementById("image").value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
 		}
 	</script>
 	<!-- Optional JavaScript -->
